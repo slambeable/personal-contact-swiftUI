@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContactsSectionView: View {
+    let person: [Person]
+
     var body: some View {
         NavigationView {
             VStack {
-                List(Person.generatePersons()) { person in
+                List(person) { person in
                     Section(header: Text(person.fullName)) {
                         HStack {
                             Image(systemName: "phone.fill")
@@ -32,6 +34,6 @@ struct ContactsSectionView: View {
 
 struct ContactsSectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsSectionView()
+        ContactsSectionView(person: Person.generatePersons())
     }
 }
